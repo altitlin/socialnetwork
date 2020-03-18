@@ -50,7 +50,7 @@ module.exports = {
   devtool: isDev ? 'source-map' : '',
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html'),
+      template: path.resolve(__dirname, 'public', 'index.html'),
       filename: 'index.html'
     }),
     new CleanWebpackPlugin(),

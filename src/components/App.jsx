@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './App.less';
+import PropTypes from 'prop-types';
+import { Route, BrowserRouter } from 'react-router-dom';
 import Header from './Header/Header';
 import Navbar from './Navbar/Navbar';
 import Profile from './Profile/Profile';
 import Dialogs from './Dialogs/Dislogs';
-import { Route, BrowserRouter } from 'react-router-dom';
+import './App.less';
 
 class App extends Component {
   constructor(props) {
@@ -12,19 +13,25 @@ class App extends Component {
   }
 
   render() {
+    const { state: { profilePage, dialogsPage } } = this.props;
+
     return (
       <BrowserRouter>
         <div className='app-wrapper'>
           <Header />
           <Navbar />
           <div className='app-wrapper__content'>
-            <Route path='/profile' component={Profile} />
-            <Route path='/dialogs' component={Dialogs} />
+            <Route path='/profile' render={() => <Profile date={profilePage} />} />
+            <Route path='/dialogs' render={() => <Dialogs date={dialogsPage} />} />
           </div>
         </div>
       </BrowserRouter>
     );
   }
 }
+
+App.propTypes = {
+  state: PropTypes.object,
+};
 
 export default App;

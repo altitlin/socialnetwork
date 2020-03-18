@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import './Post.less';
 
 const Post = props => {
-  return <div>{props.message}</div>;
+  const { message } = props.post;
+
+  return <div>{message}</div>;
 };
 
 Post.propTypes = {
-  message: PropTypes.string
+  post: PropTypes.object
 };
 
 export default Post;

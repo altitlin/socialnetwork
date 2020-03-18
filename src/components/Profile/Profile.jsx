@@ -1,17 +1,22 @@
 import React from 'react';
-import './Profile.less';
+import PropTypes from 'prop-types';
 import MyPosts from './MyPosts/MyPosts';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
+import './Profile.less';
 
-const Profile = () => {
+const Profile = props => {
+  const { date } = props;
+
   return (
     <div>
-      <img src='https://s3.amazonaws.com/images.seroundtable.com/google-css-images-1515761601.jpg' />
-      <div>
-        ava + description
-      </div>
-      <MyPosts />
+      <ProfileInfo />
+      <MyPosts posts={date.posts} />
     </div>
   );
+};
+
+Profile.propTypes = {
+  date: PropTypes.object
 };
 
 export default Profile;
