@@ -1,22 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import './Profile.less';
 
-const Profile = props => {
-  const { date } = props;
-
+const Profile = () => {
   return (
-    <div>
+    <div className='profile'>
       <ProfileInfo />
-      <MyPosts posts={date.posts} />
+      <MyPostsContainer />
     </div>
   );
-};
-
-Profile.propTypes = {
-  date: PropTypes.object
 };
 
 export default Profile;

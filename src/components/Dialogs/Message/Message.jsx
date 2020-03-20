@@ -5,7 +5,11 @@ import './Message.less';
 const Message = props => {
   const { message } = props.message;
 
-  return <div className="dialogs__message">{message}</div>;
+  return (
+    <div className="dialogs__message">
+      {message}
+    </div>
+  );
 };
 
 Message.propTypes = {

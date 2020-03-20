@@ -1,21 +1,12 @@
-.nav {
-  grid-area: nav;
-  background-color: red;
+.header__menu {
+  display: grid;
+  grid-template-columns: repeat(6, 2fr);
+  justify-items: center;
+  grid-column-gap: 20px;
 
-  &__link {
-    display: block;
-    padding: 13px 20px;
-    color: white;
-
-    &:hover {
-      background-color: #ccc;
-      color: #000;
-      cursor: pointer;
-    }
-
-    &.active {
-      background-color: #ccc;
-      color: #000;
-    }
+  &-item {
+    color: #ffffff;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 14px;
   }
 }

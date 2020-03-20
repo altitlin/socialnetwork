@@ -4,21 +4,17 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f2f2f2;
+}
+
 .link {
+  display: block;
   text-decoration: none;
 }
 
-.app-wrapper {
-  display: grid;
-  grid-template-areas:
-    'header header'
-    'nav content';
-  grid-template-rows: 90px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-
-  &__content {
-    grid-area: content;
-    background-color: yellow;
-  }
+.search-input {
+  width: 100%;
+  border: 0;
+  outline: none;
 }

@@ -4,12 +4,12 @@ import './Navbar.less';
 
 const Navbar = () => {
   return (
-    <nav className='nav'>
-      <div className='nav__item'><NavLink className='link nav__link' to="/profile">My profile</NavLink></div>
-      <div className='nav__item'><NavLink className='link nav__link' to="/news">News</NavLink></div>
-      <div className='nav__item'><NavLink className='link nav__link' to="/dialogs">Message</NavLink></div>
-      <div className='nav__item'><NavLink className='link nav__link' to="/music">Music</NavLink></div>
-      <div className='nav__item'><NavLink className='link nav__link' to="/settings">Settings</NavLink></div>
+    <nav className='header__menu'>
+      <NavLink className='link header__menu-item' to="/profile">My profile</NavLink>
+      <NavLink className='link header__menu-item' to="/news">News</NavLink>
+      <NavLink className='link header__menu-item' to="/dialogs">Message</NavLink>
+      <NavLink className='link header__menu-item' to="/music">Music</NavLink>
+      <NavLink className='link header__menu-item' to="/settings">Settings</NavLink>
     </nav>
   );
 };
