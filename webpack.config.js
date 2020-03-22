@@ -68,6 +68,10 @@ module.exports = {
       {
         test: /\.less$/,
         use: cssLoaders('less-loader')
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader'
       }
     ]
   }

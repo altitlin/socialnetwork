@@ -1,14 +1,14 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_FRIENDS = 'SET-FRIENDS';
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+const SET_TOTAL_FRIENDS_COUNT = 'SET-TOTAL-FRIENDS-COUNT';
 
 const intialState = {
-  friends: [
-    { id: 1, followed: true, name: 'Pasha', ava: 'http://gambolthemes.net/workwise-new/images/resources/m-img4.png', location: { city: 'Russia', country: 'Moscow' } },
-    { id: 2, followed: false, name: 'Pasha', ava: 'http://gambolthemes.net/workwise-new/images/resources/m-img4.png', location: { city: 'Russia', country: 'Ryazan' } },
-    { id: 3, followed: false, name: 'Maxim', ava: 'http://gambolthemes.net/workwise-new/images/resources/m-img4.png', location: { city: 'Russia', country: 'Piter'  } },
-    { id: 4, followed: true, name: 'Alex', ava: 'http://gambolthemes.net/workwise-new/images/resources/m-img4.png', location: { city: 'Russia', country: 'Samara'  } }
-  ]
+  friends: [],
+  pageSize: 3,
+  totalFriendsCount: 0,
+  currentPage: 1
 };
 
 export default (state = intialState, action) => {
@@ -44,7 +44,13 @@ export default (state = intialState, action) => {
   case SET_FRIENDS:
     return {
       ...state,
-      friends: [...state.friends, ...action.friends]
+      friends: action.friends
+    };
+
+  case SET_CURRENT_PAGE:
+    return {
+      ...state,
+      currentPage: action.currentPage
     };
 
   default:
@@ -59,4 +65,14 @@ export const unfollowCreator = id => ({ type: UNFOLLOW, userId: id });
 export const setFriendsCreator = friends => ({
   friends,
   type: SET_FRIENDS
+});
+
+export const setCurrentPageCreator = currentPage => ({
+  currentPage,
+  type: SET_CURRENT_PAGE
+});
+
+export const setTotalFriendsCountCreator = totalCount => ({
+  type: SET_TOTAL_FRIENDS_COUNT,
+  totalFriendsCount: totalCount
 });

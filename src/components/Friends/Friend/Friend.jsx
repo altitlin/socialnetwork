@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import userPhoto from '../../../assets/images/user.png';
 
 import './Friend.less';
 
@@ -15,17 +16,17 @@ const Friend = props => {
 
   return (
     <div className='friend'>
-      <img src={ava} className='friend__logo' />
+      <img src={ava ? ava : userPhoto} className='friend__logo' />
       <h3 className='friend__name'>{name}</h3>
       <h4 className='friend__location'>
-        {`${location.city} ${location.country}`}
+        City Country
       </h4>
       <div className="friend__btns">
         {followed
           ? <button className='friend__btn friend__btn-follow' onClick={onUnfollow}>Unfollow</button>
           : <button className='friend__btn friend__btn-follow' onClick={onFollow}>Follow</button>
         }
-        <button className='friend__btn friend__btn-msg'>Message</button>
+        <button className='friend__btn friend__btn-msg'>&#128386;</button>
       </div>
     </div>
   );
