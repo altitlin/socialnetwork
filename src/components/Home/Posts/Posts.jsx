@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Post from './Post/Post';
 
-import './MyPosts.less';
+import './Posts.less';
 
-const MyPosts = props => {
+const Posts = props => {
   const { posts, newPostText, updateNewPostText, addPost } = props;
 
   const onAddPost = event => {
@@ -40,11 +40,11 @@ const MyPosts = props => {
   );
 };
 
-MyPosts.propTypes = {
+Posts.propTypes = {
   posts: PropTypes.array,
   newPostText: PropTypes.string,
   updateNewPostText: PropTypes.func,
   addPost: PropTypes.func
 };
 
-export default MyPosts;
+export default Posts;

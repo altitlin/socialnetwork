@@ -3,7 +3,24 @@
   grid-template-columns: repeat(4, 3fr);
   grid-column-gap: 30px;
 
+  &__pages {
+    justify-self: center;
+  }
+
+  &__page {
+    color: #fff;
+    font-size: 16px;
+    background-color: #51a5fb;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    line-height: 30px;
+    cursor: pointer;
+  }
+
   &__page_selected {
-    font-weight: bold;
+    color: #fff;
+    background-color: blue;
+    opacity: .5;
   }
 }

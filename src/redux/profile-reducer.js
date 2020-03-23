@@ -31,9 +31,9 @@ export default (state = intialState, action) => {
   }
 };
 
-export const addPostCreator = () => ({ type: ADD_POST });
+export const addPost = () => ({ type: ADD_POST });
 
-export const updateNewPostTeactCreator = text => ({
+export const updateNewPost = text => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: text
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Message from './Message/Message';
 import DialogItem from './DialogItem/DialogItem';
+
 import './Dialogs.less';
 
 const Dialogs = props => {

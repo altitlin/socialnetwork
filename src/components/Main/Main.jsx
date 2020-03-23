@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Profile from '../Profile/Profile';
+import Home from '../Home/Home';
 import DialogsContainer from '../Dialogs/DislogsContainer';
 import FriendsContainer from '../Friends/FriendsContainer';
 
@@ -9,7 +9,7 @@ import './Main.less';
 const Main = () => {
   return (
     <main className='main'>
-      <Route path='/profile' render={() => <Profile />} />
+      <Route exact={true} path='/' render={() => <Home />} />
       <Route path='/dialogs' render={() => <DialogsContainer />} />
       <Route path='/friends' render={() => <FriendsContainer />} />
     </main>

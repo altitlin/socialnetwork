@@ -1,6 +1,7 @@
 .profile {
   &__user-profile {
     text-align: center;
+    background-color: #ffffff;
   }
 
   &__user-dt {
@@ -20,7 +21,6 @@
 
   &__user-specs {
     padding: 75px 0 27px 0;
-    background-color: #ffffff;
   }
 
   &__user-name {
@@ -34,5 +34,23 @@
   &__user-des {
     color: #686868;
     font-size: 14px;
+  }
+
+  &__user-status {
+    & li {
+      border-top: 1px solid #e5e5e5;
+      padding: 15px 0;
+
+      & h4 {
+        color: #686868;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      & span {
+        color: #000000;
+        font-size: 20px;
+      }
+    }
   }
 }

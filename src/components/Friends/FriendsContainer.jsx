@@ -1,30 +1,112 @@
 import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import * as axios from 'axios';
 import Friends from './Friends';
+import Preloader from '../Preloader/Preloader';
 import {
-  followCreator,
-  unfollowCreator,
-  setFriendsCreator,
-  setCurrentPageCreator,
-  setTotalFriendsCountCreator
+  follow,
+  unfollow,
+  setFriends,
+  setCurrentPage,
+  setTotalFriendsCount,
+  toggleIsFetching
 } from '../../redux/friends-reducer';
+
+
+class FriendsContainer extends Component {
+  componentDidMount() {
+    const { currentPage, pageSize, toggleIsFetching } = this.props;
+
+    toggleIsFetching(true);
+
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+      .then(res => {
+        const { items, totalCount } = res.data;
+        const { setFriends, setTotalFriendsCount } = this.props;
+
+        setFriends(items);
+        setTotalFriendsCount(totalCount);
+        toggleIsFetching(false)
+      });
+  }
+
+  onPageChanged = pageNumber => {
+    const {
+      pageSize,
+      setCurrentPage,
+      setFriends,
+      toggleIsFetching
+    } = this.props;
+
+    setCurrentPage(pageNumber);
+    toggleIsFetching(true);
+
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
+      .then(res => {
+        setFriends(res.data.items);
+        toggleIsFetching(false);
+      });
+  }
+
+  render() {
+    const {
+      totalFriendsCount,
+      pageSize,
+      currentPage,
+      isFetching,
+      friends,
+      follow,
+      unfollow
+    } = this.props;
+
+    return (
+      <>
+        {isFetching && <Preloader />}
+        <Friends
+          totalFriendsCount={totalFriendsCount}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          friends={friends}
+          onPageChanged={this.onPageChanged}
+          follow={follow}
+          unfollow={unfollow}
+        />
+      </>
+    );
+  }
+}
+
+FriendsContainer.propTypes = {
+  friends: PropTypes.array,
+  pageSize: PropTypes.number,
+  totalFriendsCount: PropTypes.number,
+  currentPage: PropTypes.number,
+  isFetching: PropTypes.bool,
+  follow: PropTypes.func,
+  unfollow: PropTypes.func,
+  setFriends: PropTypes.func,
+  setTotalFriendsCount: PropTypes.func,
+  setCurrentPage: PropTypes.func
+};
 
 const mapStateToProps = state => ({
   ...state.friendsPage,
   pageSize: state.friendsPage.pageSize,
   totalFriendsCount: state.friendsPage.totalFriendsCount,
-  currentPage: state.friendsPage.currentPage
+  currentPage: state.friendsPage.currentPage,
+  isFetching: state.friendsPage.isFetching
 });
 
-const mapDispathToProps = dispatch => {
-  return {
-    follow: id => dispatch(followCreator(id)),
-    unfollow: id => dispatch(unfollowCreator(id)),
-    setFriends: users => dispatch(setFriendsCreator(users)),
-    setTotalFriendsCount: totalCount => dispatch(setTotalFriendsCountCreator(totalCount)),
-    setCurrentPage: currentPage => dispatch(setCurrentPageCreator(currentPage))
-  };
+const mapDispathToProps = {
+  follow,
+  unfollow,
+  setFriends,
+  setCurrentPage,
+  setTotalFriendsCount,
+  toggleIsFetching
 };
 
-const FriendsContainer = connect(mapStateToProps, mapDispathToProps)(Friends);
-
-export default FriendsContainer;
+export default connect(mapStateToProps, mapDispathToProps)(FriendsContainer);

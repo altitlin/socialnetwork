@@ -1,0 +1,46 @@
+.keyframes(@name, @rules) {
+  @-webkit-keyframes @name {
+    @rules();
+  }
+
+  @keyframes @name {
+    @rules();
+  }
+}
+
+.keyframes(
+  sk-bouncedelay,
+  {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+  }
+);
+
+.spinner {
+  justify-self: center;
+  
+  width: 80px;
+  text-align: center;
+  height: 80px;
+  border-radius: 100px;
+  background-color: #fff;
+  line-height: 80px;
+  border: 1px solid #e1e1e1;
+
+  &__bounce {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #b9b9b9;
+    border-radius: 100%;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+
+  &__bounce1 {
+    animation-delay: -0.32s;
+  }
+
+  &__bounce2 {
+    animation-delay: -0.16s;
+  }
+}

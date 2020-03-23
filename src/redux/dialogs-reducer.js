@@ -41,9 +41,9 @@ export default (state = intialState, action) => {
   }
 };
 
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
+export const sendMessage = () => ({ type: SEND_MESSAGE });
 
-export const updateNewMessageBodyCreator = text => ({
+export const updateNewMessageBody = text => ({
   type: UPPDATE_NEW_MESSAGE_BODY,
   body: text
 });

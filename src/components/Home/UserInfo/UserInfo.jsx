@@ -1,7 +1,7 @@
 import React from 'react';
-import './ProfileInfo.less';
+import './UserInfo.less';
 
-const ProfileInfo = props => {
+const UserInfo = () => {
   return (
     <div className='profile__user-info'>
       <div className='profile__user-profile'>
@@ -12,9 +12,19 @@ const ProfileInfo = props => {
           <h3 className='profile__user-name'>Sasha Titov</h3>
           <span className='profile__user-des'>Junior Frontend Developer</span>
         </div>
+        <ul className='profile__user-status'>
+          <li>
+            <h4>Following</h4>
+            <span>34</span>
+          </li>
+          <li>
+            <h4>Followers</h4>
+            <span>155</span>
+          </li>
+        </ul>
       </div>
     </div>
   );
 };
 
-export default ProfileInfo;
+export default UserInfo;
