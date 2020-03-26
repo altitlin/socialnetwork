@@ -1,39 +1,19 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_USER_PROFILE = 'SET-USER-PROFILE';
 
-let intialState = {
-  posts: [
-    { id: 1, message: 'Hi, how are you?' },
-    { id: 2, message: 'It is my first post' }
-  ],
-  newPostText: ''
+let initialState = {
+  profile: null
 };
 
-export default (state = intialState, action) => {
-  const { type } = action;
+export default (state = initialState, action) => {
+  switch (action.type) {
+  case SET_USER_PROFILE:
+    return { ...state, profile: action.profile };
 
-  switch (type) {
-  case ADD_POST:
-    return {
-      ...state,
-      newPostText: '',
-      posts: [...state.posts, { id: 3, message: state.newPostText }]
-    };
-
-  case UPDATE_NEW_POST_TEXT:
-    return {
-      ...state,
-      newPostText: action.newText
-    };
-
-  default:
-    return state;
+  default: return state;
   }
 };
 
-export const addPost = () => ({ type: ADD_POST });
-
-export const updateNewPost = text => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text
+export const setFriendProfile = profile => ({
+  profile,
+  type: SET_USER_PROFILE
 });

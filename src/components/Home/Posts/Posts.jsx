@@ -5,7 +5,7 @@ import Post from './Post/Post';
 import './Posts.less';
 
 const Posts = props => {
-  const { posts, newPostText, updateNewPostText, addPost } = props;
+  const { posts, newPostText, updateNewPost, addPost } = props;
 
   const onAddPost = event => {
     if (event.key === 'Enter') {
@@ -13,7 +13,7 @@ const Posts = props => {
     }
   };
 
-  const onPostChange = e => updateNewPostText(e.target.value);
+  const onPostChange = e => updateNewPost(e.target.value);
 
   return (
     <div className='profile__posts'>
@@ -43,7 +43,7 @@ const Posts = props => {
 Posts.propTypes = {
   posts: PropTypes.array,
   newPostText: PropTypes.string,
-  updateNewPostText: PropTypes.func,
+  updateNewPost: PropTypes.func,
   addPost: PropTypes.func
 };
 

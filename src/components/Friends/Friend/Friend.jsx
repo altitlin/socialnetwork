@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import userPhoto from '../../../assets/images/user.png';
 
@@ -16,7 +17,9 @@ const Friend = props => {
 
   return (
     <div className='friend'>
-      <img src={ava ? ava : userPhoto} className='friend__logo' />
+      <NavLink to={`/profile/${id}`}>
+        <img src={ava ? ava : userPhoto} className='friend__logo' />
+      </NavLink>
       <h3 className='friend__name'>{name}</h3>
       <h4 className='friend__location'>
         City Country

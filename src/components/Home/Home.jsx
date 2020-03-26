@@ -6,7 +6,7 @@ import './Home.less';
 
 const Home = () => {
   return (
-    <div className='profile'>
+    <div className='home'>
       <UserInfo />
       <PostsContainer />
     </div>

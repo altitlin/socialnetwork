@@ -3,9 +3,9 @@ import Posts from './Posts';
 import {
   addPost,
   updateNewPost
-} from '../../../redux/profile-reducer';
+} from '../../../redux/home-reducer';
 
-const mapStateToProps = state => ({ ...state.profilePage });
+const mapStateToProps = state => ({ ...state.homePage });
 
 const mapDispathToProps = {
   addPost,

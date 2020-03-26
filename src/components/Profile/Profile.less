@@ -1,0 +1,115 @@
+.section {
+  width: 100%;
+
+  &__logo {
+    width: 100%;
+  }
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 18% 3fr 9fr 18%;
+  grid-template-areas: ". userinfo userposts .";
+  grid-column-gap: 30px;
+
+  &__user > div:first-child {
+    margin-bottom: 28px;
+    position: relative;
+    margin-top: -95px;
+    margin-bottom: 30px;
+  }
+
+  &__user-info {
+    grid-area: userinfo;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  &__logo-user {
+    border: 5px solid #fff;
+    border-radius: 100%;
+  }
+
+  &__btns-user {
+    margin-bottom: 30px;
+  }
+
+  &__btn-user {
+    height: 100%;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 11px 15px;
+    border-radius: 3px;
+  }
+
+  &__btn-follow {
+    position: relative;
+    margin-right: 20px;
+    background-color: #53d690;
+    padding-left: 40px;
+
+    &:before {
+      content: '+';
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      font-size: 22px;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__btn-hire {
+    background-color: #51a5fb;
+  }
+
+  &__status-user {
+    padding-bottom: 30px;
+  }
+
+  &__status-following,
+  &__status-unfollowing {
+    display: inline-block;
+
+    & span {
+      color: #686868;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    & b {
+      color: #000000;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  &__status-following {
+    margin-right: 50px;
+  }
+
+  &__posts-user {
+    grid-area: userposts;
+  }
+
+  &__user-data {
+    padding-top: 60px;
+  }
+
+  &__user-name {
+    color: #000000;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  &__user-des {
+    color: #686868;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}

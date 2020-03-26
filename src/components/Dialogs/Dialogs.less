@@ -1,8 +1,11 @@
 .dialogs {
   display: grid;
-  grid-template-columns: 3fr 9fr;
+  grid-template-columns: 20% 3fr 9fr 20%;
+  grid-template-areas: ". dialogs messages .";
+  padding-top: 60px;
 
   &__items {
+    grid-area: dialogs;
     background-color: #fff;
     border-left: 1px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
@@ -14,5 +17,9 @@
       font-size: 18px;
       font-weight: 600;
     }
+  }
+
+  &__messages-box {
+    grid-area: messages;
   }
 }
